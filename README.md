@@ -4,31 +4,30 @@
 
 使用Scroll Rect和Grid Layout Group实现排列页面和上下滑动的功能。滑动列表采用调整对象位置复用的方法优化。物品数据通过Json文件读取存储在一个类对象的List里面。
 
-## 2.目录结构 
-
-｜  
+## 2.目录结构
+```｜  
 ｜——Resources   
 ｜  ｜——JsonData  
-｜      ｜——ranklist 			#Json文件  
+｜     ｜——ranklist 			#Json文件  
 ｜
 ｜——Scripts   
 ｜  ｜——DataManagers  
-｜  ｜   ｜——JsonData        		#读取Json数据  
-｜  ｜   ｜——ObjectPool	    		#对象池
-｜  ｜
-｜  ｜——InfoLoad
-｜  ｜    ｜——LeaderboardInfoLoad    	#排行榜信息加载
-｜  ｜    ｜——PlayerInfoLoad		#玩家信息加载
-｜  ｜    ｜——ToastDataLoad		#弹窗信息加载
-｜  ｜ 
-｜  ｜——UIControl  
-｜       ｜——CountDownUIControl 		#倒计时控制  
-｜ 	 ｜——EnterUIControl 		#进入主界面控制
-｜       ｜——ImageScrollShowControl 	#卡片滑动控制    
-｜       ｜——LeaderBoardShowControl	#排行榜显示控制
-｜       ｜——ToastShowControl		#弹窗显示控制
+｜  ｜  ｜——JsonData        		#读取Json数据    
+｜  ｜  ｜——ObjectPool	    	        #对象池  
+｜  ｜  
+｜  ｜——InfoLoad  
+｜  ｜  ｜——LeaderboardInfoLoad          #排行榜信息加载     
+｜  ｜  ｜——PlayerInfoLoad		#玩家信息加载  
+｜  ｜  ｜——ToastDataLoad		#弹窗信息加载  
+｜  ｜   
+｜  ｜——UIControl    
+｜     ｜——CountDownUIControl 		#倒计时控制    
+｜     ｜——EnterUIControl 		#进入主界面控制   
+｜     ｜——ImageScrollShowControl 	#卡片滑动控制      
+｜     ｜——LeaderBoardShowControl	#排行榜显示控制  
+｜     ｜——ToastShowControl		#弹窗显示控制  
 ｜
-
+```
 
 ## 3.代码逻辑分层
 
