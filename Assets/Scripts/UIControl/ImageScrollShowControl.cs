@@ -16,6 +16,7 @@ public class ImageScrollShowControl : MonoBehaviour
     private float hight; //信息框加间隔的距离
     private int playerInfoNumber; //玩家信息总数
     private GridLayoutGroup grid; //排序组件
+    private RectTransform contentRect;
 
     private void Start()
     {
@@ -24,6 +25,8 @@ public class ImageScrollShowControl : MonoBehaviour
         viewPointImage.GetComponent<RectTransform>().GetWorldCorners(viewCorners); //获取显示框四个角的坐标
         grid = GetComponent<GridLayoutGroup>(); //获取组件
         hight = grid.cellSize.y + grid.spacing.y; //一个信息框加一个间隔的距离
+        contentRect = GetComponent<RectTransform>();
+        contentRect.sizeDelta = new Vector2(contentRect.sizeDelta.x, hight * playerInfoNumber); //设置排列框长度
     }
 
     void Update()
