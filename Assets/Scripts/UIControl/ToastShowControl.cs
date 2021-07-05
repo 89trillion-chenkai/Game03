@@ -6,10 +6,12 @@
 public class ToastShowControl : MonoBehaviour
 {
     public GameObject toast; //弹出窗口
+    private RectTransform toastRect;
 
     void Start()
     {
         toast.SetActive(false);
+        toastRect = toast.GetComponent<RectTransform>();
     }
 
     //按钮绑定的展示玩家信息窗口
@@ -18,9 +20,10 @@ public class ToastShowControl : MonoBehaviour
         if (toast.activeSelf == false)
         {
             toast.SetActive(true);
-            toast.transform.GetComponent<RectTransform>().anchoredPosition3D = Vector3.zero; //设置位置居中
+            toastRect.sizeDelta = transform.GetComponent<RectTransform>().sizeDelta; //让弹窗和排行榜信息卡片大小一样
+            toastRect.anchoredPosition3D = Vector3.zero; //设置位置居中
             toast.GetComponent<ToastDataLoad>().LoadPlayerPInfo(); //加载玩家信息
-            Invoke("CloseToast", 1); //显示两秒后即关闭弹窗
+            Invoke("CloseToast", 1); //显示1秒后即关闭弹窗
         }
     }
 

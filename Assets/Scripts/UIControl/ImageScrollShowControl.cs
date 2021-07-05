@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class ImageScrollShowControl : MonoBehaviour
 {
     public LinkedList<GameObject> loopItems = new LinkedList<GameObject>(); //存储所有卡片对象
-    public Image viewPointImage; //范围显示框
+    public Image viewPointImage; //范围显示框，需拖拽
     private UserData userData; //接收Json数据
     private Vector3[] viewCorners = new Vector3[4]; //存储显示框的四个点坐标
     private Vector3[] rectCorners = new Vector3[4]; //卡片信息的四个点坐标
@@ -39,13 +39,9 @@ public class ImageScrollShowControl : MonoBehaviour
             }
         }
 
-        if (transform.childCount != 0 && transform.childCount == loopItems.Count) //保持链表里和显示框里都有全部物体
+        if (transform.childCount != 0 && transform.childCount == loopItems.Count) //保证链表里和显示框里都有全部物体
         {
             IfChange(); //判断是否有卡片离开
-        }
-        else if(loopItems.Count != 0)
-        {
-            loopItems.Clear(); //清除链表数据
         }
     }
 
@@ -69,6 +65,7 @@ public class ImageScrollShowControl : MonoBehaviour
                         last.GetComponent<RectTransform>().localPosition - new Vector3(0, hight, 0); //设置信息位置
                     first.GetComponent<PlayerInfoLoad>().LoadPlayerInfo(userData.list[index], index + 1); //更新显示信息
                     loopItems.AddLast(first);
+                    first.transform.Find("Toast").gameObject.SetActive(false); //防止信息卡片的Toast还在显示就被复用
                     loopItems.RemoveFirst();
                 }
             }
@@ -87,6 +84,7 @@ public class ImageScrollShowControl : MonoBehaviour
                         first.GetComponent<RectTransform>().localPosition + new Vector3(0, hight, 0); //设置信息位置
                     last.GetComponent<PlayerInfoLoad>().LoadPlayerInfo(userData.list[index - 2], index - 1); //更新显示信息
                     loopItems.AddFirst(last);
+                    last.transform.Find("Toast").gameObject.SetActive(false); //防止信息卡片的Toast还在显示就被复用
                     loopItems.RemoveLast();
                 }
             }

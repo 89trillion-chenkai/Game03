@@ -6,29 +6,28 @@ using static System.Net.Mime.MediaTypeNames;
 /// 对象池
 /// </summary>
 public class ObjectsPool : MonoBehaviour {
-    public GameObject prefab; //生成物体
-    public Transform content; //生成物体的父物体
-    private Queue<GameObject> pooledInstanceQueue = new Queue<GameObject>(); //存放物体对象
+    public GameObject prefab; //生成物体，需拖拽
+    private Queue<GameObject> poolQueue = new Queue<GameObject>(); //存放物体对象
 
     //获取对象
     public GameObject GetInstance() 
     {
-        if (pooledInstanceQueue.Count > 0)
+        if (poolQueue.Count > 0)
         {
-            GameObject instanceToReuse = pooledInstanceQueue.Dequeue();
-            instanceToReuse.SetActive(true);
-            return instanceToReuse;
+            GameObject instanceObject = poolQueue.Dequeue(); //出队
+            instanceObject.SetActive(true);
+            return instanceObject;
         }
 
-        return Instantiate(prefab, content, false);
+        return Instantiate(prefab); //如果对象池里没有则直接生成
     }
 
     //回收对象
-    public void ReturnInstance(GameObject gameObjectToPool)
+    public void ReturnInstance(GameObject returnGameObject)
     {
-        pooledInstanceQueue.Enqueue(gameObjectToPool);
-        gameObjectToPool.transform.SetParent(transform, false); //把物体移到脚本所在物体下
-        gameObjectToPool.SetActive(false);
+        poolQueue.Enqueue(returnGameObject); //入队
+        returnGameObject.transform.SetParent(transform, false); //把物体移到脚本所在物体下
+        returnGameObject.SetActive(false);
     }
 }
 

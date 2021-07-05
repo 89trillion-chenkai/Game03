@@ -17,19 +17,20 @@ public class UserInfo //数据模板类
 
 public class UserData //数据接收类
 {
-    public List<UserInfo> list;
+    public string countDown; //倒计时
+    public List<UserInfo> list; //玩家信息
 }
 
 public class JsonData : MonoBehaviour
 {
-    private static UserData data;
+    public static UserData data;
     
     private void Awake()
     {
         TextAsset itemText = Resources.Load<TextAsset>("JsonData/ranklist"); //从Resources加载Json数据
         string itemJson = itemText.text;
         data = JsonUtility.FromJson<UserData>(itemJson);
-        SortInfo();
+        SortInfo(); //玩家成就信息排序
     }
 
     //供外界获取Json数据

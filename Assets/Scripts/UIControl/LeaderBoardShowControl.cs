@@ -32,14 +32,14 @@ public class LeaderBoardShowControl : MonoBehaviour
     {
         if (leaderBoardImage.IsActive() == true)
         {
-            for (int i = 0; i < imageContent.transform.childCount; i++)
+            for (int i = imageContent.transform.childCount - 1; i >= 0; i--)
             {
-                Destroy(imageContent.transform.GetChild(i).gameObject); 
-                //后续改进加入对象池回收
-                //GetComponent<ObjectsPool>().ReturnInstance(imageContent.transform.GetChild(i).gameObject); //回收信息卡片对象
+                //对象池回收信息卡片对象
+                GetComponent<ObjectsPool>().ReturnInstance(imageContent.transform.GetChild(i).gameObject); 
+                imageContent.GetComponent<ImageScrollShowControl>().loopItems.Clear(); //清除链表里的信息数据
             }
             
-            imageContent.transform.position = imageContentPosition; //让显示框回到的初始位置
+            imageContent.transform.position = imageContentPosition; //让滑动框回到的初始位置
             leaderBoardImage.gameObject.SetActive(false);
         }
     }

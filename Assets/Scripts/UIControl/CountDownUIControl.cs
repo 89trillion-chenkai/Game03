@@ -9,11 +9,13 @@ using UnityEngine.UI;
 /// </summary>
 public class CountDownUIControl : MonoBehaviour
 {
-    public Text timeText; //时间显示文本
-    private int countDown = 835503; //倒计时时长
+    public Text timeText; //时间显示文本，需拖拽
+    private int countDown; //倒计时时长
     private float time; //中间时间变量
+    
     void Start()
-    { 
+    {
+        countDown = int.Parse(JsonData.data.countDown); //获取倒计时
         time = Time.time;
     }
     
