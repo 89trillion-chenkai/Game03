@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -30,29 +31,17 @@ public class JsonData : MonoBehaviour
         TextAsset itemText = Resources.Load<TextAsset>("JsonData/ranklist"); //从Resources加载Json数据
         string itemJson = itemText.text;
         data = JsonUtility.FromJson<UserData>(itemJson);
-        SortInfo(); //玩家成就信息排序
+        
+        //按奖杯数量对玩家信息进行从大到小的排序
+        data.list.Sort((x, y) =>
+        {
+            return y.trophy - x.trophy;
+        });
     }
 
     //供外界获取Json数据
     public static UserData GetItem()
     {
         return data;
-    }
-    
-    //玩家信息排序
-    private void SortInfo()
-    {
-        for (int i = 0; i < data.list.Count; ++i) //玩家成就信息排序
-        {
-            for (int j = i+1; j < data.list.Count; ++j)
-            {
-                if (data.list[i].trophy < data.list[j].trophy)
-                {
-                    UserInfo temp = data.list[j];
-                    data.list[j] = data.list[i];
-                    data.list[i] = temp;
-                }
-            }
-        }
     }
 }

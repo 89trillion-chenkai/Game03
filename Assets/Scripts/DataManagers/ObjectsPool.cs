@@ -6,6 +6,7 @@ using static System.Net.Mime.MediaTypeNames;
 /// 对象池
 /// </summary>
 public class ObjectsPool : MonoBehaviour {
+    [SerializeField]
     public GameObject prefab; //生成物体，需拖拽
     private Queue<GameObject> poolQueue = new Queue<GameObject>(); //存放物体对象
 
