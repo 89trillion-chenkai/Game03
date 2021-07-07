@@ -657,8 +657,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 175.4, y: -12.7}
-  m_SizeDelta: {x: 100, y: 50}
+  m_AnchoredPosition: {x: 175.75, y: -12.7}
+  m_SizeDelta: {x: 100.69565, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &646372506
 MonoBehaviour:
@@ -1657,6 +1657,7 @@ GameObject:
   - component: {fileID: 1460396159}
   - component: {fileID: 1460396163}
   - component: {fileID: 1460396162}
+  - component: {fileID: 1460396161}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1681,6 +1682,7 @@ MonoBehaviour:
   leaderBoardInfoLoad: {fileID: 1285806293}
   imageScrollShowControl: {fileID: 1285806294}
   objectsPool: {fileID: 1460396162}
+  countDownUIControl: {fileID: 1460396161}
 --- !u!4 &1460396160
 Transform:
   m_ObjectHideFlags: 0
@@ -1695,6 +1697,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1460396161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460396158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0af1d3d3b5254480bba8e2bfa2c0c95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeText: {fileID: 1809510733}
 --- !u!114 &1460396162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2095,7 +2110,6 @@ GameObject:
   - component: {fileID: 1809510732}
   - component: {fileID: 1809510734}
   - component: {fileID: 1809510733}
-  - component: {fileID: 1809510735}
   m_Layer: 5
   m_Name: TimeText
   m_TagString: Untagged
@@ -2119,8 +2133,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 335.69, y: -14.3}
-  m_SizeDelta: {x: 219.18872, y: 50}
+  m_AnchoredPosition: {x: 339.98, y: -14.3}
+  m_SizeDelta: {x: 227.76141, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1809510733
 MonoBehaviour:
@@ -2165,19 +2179,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809510731}
   m_CullTransparentMesh: 0
---- !u!114 &1809510735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1809510731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0af1d3d3b5254480bba8e2bfa2c0c95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeText: {fileID: 1809510733}
 --- !u!1 &1827536028
 GameObject:
   m_ObjectHideFlags: 0

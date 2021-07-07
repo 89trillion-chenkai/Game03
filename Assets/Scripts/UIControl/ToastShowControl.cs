@@ -19,9 +19,7 @@ public class ToastShowControl : MonoBehaviour
         if (toast.activeSelf == false)
         {
             toast.SetActive(true);
-            //让弹窗和卡片大小保持一致
-            //toast.GetComponent<RectTransform>().sizeDelta = transform.GetComponent<RectTransform>().sizeDelta;
-            toast.transform.SetParent(transform.parent.parent, false);
+            toast.transform.SetParent(transform.parent.parent, false); //设置父物体
             toastRect.anchoredPosition3D = Vector3.zero; //设置位置居中
             toast.GetComponent<ToastDataLoad>().LoadPlayerPInfo(); //加载玩家信息
             Invoke("CloseToast", 1); //显示1秒后即关闭弹窗

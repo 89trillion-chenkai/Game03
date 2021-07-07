@@ -21,7 +21,7 @@ public class ToastDataLoad : MonoBehaviour
             userData = JsonData.GetItem(); //获取Json数据
         }
         
-        int index = int.Parse(sortNumberText.text); //获取玩家序号
+        int index = int.Parse(sortNumberText.text); //获取玩家在排行榜上的名次序号
         UserInfo info = userData.list[index - 1]; //获取玩家数据
         rankText.text = index.ToString(); //设置玩家排名序号
         userText.text = info.nickName; //设置昵称
