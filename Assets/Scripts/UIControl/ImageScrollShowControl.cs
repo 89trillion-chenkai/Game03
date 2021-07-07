@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// 玩家信息显示框复用
+/// 排行榜信息卡片滑动控制
 /// </summary>
 public class ImageScrollShowControl : MonoBehaviour
 {

@@ -18,8 +18,8 @@ public class LeaderBoardInfoLoad : MonoBehaviour
         float cellSizeHeight = gridLayoutGroup.cellSize.y; //每个排行榜信息显示位置的高度
         float spacingHeight = gridLayoutGroup.spacing.y; //排行榜信息间间隔的高度
         float heightScale = ImageViewPoint.rect.height / 6 / (cellSizeHeight + spacingHeight); //计算卡片显示和间隔高度的缩放比例
-        gridLayoutGroup.cellSize = new Vector2(gridLayoutGroup.cellSize.x, cellSizeHeight * heightScale); //设置排行榜卡片排列显示的高
-        gridLayoutGroup.spacing = new Vector2(gridLayoutGroup.spacing.x, spacingHeight * heightScale); //设置排行榜卡片显示间隔的高
+        gridLayoutGroup.cellSize = new Vector2(gridLayoutGroup.cellSize.x, cellSizeHeight * heightScale); //设置排行榜信息卡片的高
+        gridLayoutGroup.spacing = new Vector2(gridLayoutGroup.spacing.x, spacingHeight * heightScale); //设置排行榜卡片间隔
     }
 
     //展示玩家信息

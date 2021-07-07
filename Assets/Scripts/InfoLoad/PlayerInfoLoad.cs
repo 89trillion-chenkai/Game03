@@ -26,7 +26,7 @@ public class PlayerInfoLoad : MonoBehaviour
         nameText.text = info.nickName; //设置昵称
         trophyNumberText.text = info.trophy.ToString(); //设置奖杯数量
         
-        if (sortNumber <= 3) //前三名
+        if (sortNumber <= 3) //前三名需要显示名次图片
         {
             sortImage.gameObject.SetActive(true);
             sortImage.sprite = Resources.Load<Sprite>(pathSortImage + sortNumber); //加载名次图片

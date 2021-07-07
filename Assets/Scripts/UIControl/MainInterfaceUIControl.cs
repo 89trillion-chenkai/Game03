@@ -45,6 +45,7 @@ public class MainInterfaceUIControl : MonoBehaviour
         if (mainInterfaceImage.activeSelf == true)
         {
             ClearLeaderboard(); //清除排行榜数据
+            contentImage.position = imageContentPosition; //让滑动框回到的初始位置
             mainInterfaceImage.SetActive(false);
         }
     }
@@ -57,7 +58,5 @@ public class MainInterfaceUIControl : MonoBehaviour
             objectsPool.ReturnInstance(contentImage.GetChild(i).gameObject); //对象池回收信息卡片物体
             imageScrollShowControl.loopItems.Clear(); //清除链表里的排行榜卡片信息数据
         }
-
-        contentImage.position = imageContentPosition; //让滑动框回到的初始位置
     }
 }
