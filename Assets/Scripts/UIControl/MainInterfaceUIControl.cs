@@ -28,9 +28,9 @@ public class MainInterfaceUIControl : MonoBehaviour
     {
         if (mainInterfaceImage.activeSelf == false)
         {
-            mainInterfaceImage.SetActive(true);
+            mainInterfaceImage.SetActive(true); //主界面显示
             leaderBoardInfoLoad.ShowInfo(); //加载排行榜信息
-
+            
             if (countDownTimeStartFlag == false)
             {
                 countDownUIControl.StartCoroutine("CountDownTime"); //开启倒计时协程
@@ -46,7 +46,7 @@ public class MainInterfaceUIControl : MonoBehaviour
         {
             ClearLeaderboard(); //清除排行榜数据
             contentImage.position = imageContentPosition; //让滑动框回到的初始位置
-            mainInterfaceImage.SetActive(false);
+            mainInterfaceImage.SetActive(false); //主界面隐藏
         }
     }
     
@@ -56,7 +56,8 @@ public class MainInterfaceUIControl : MonoBehaviour
         for (int i = contentImage.childCount - 1; i >= 0; i--)
         {
             objectsPool.ReturnInstance(contentImage.GetChild(i).gameObject); //对象池回收信息卡片物体
-            imageScrollShowControl.loopItems.Clear(); //清除链表里的排行榜卡片信息数据
         }
+        
+        imageScrollShowControl.loopItems.Clear(); //清除链表里的排行榜卡片信息数据
     }
 }

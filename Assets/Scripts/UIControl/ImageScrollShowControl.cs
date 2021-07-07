@@ -51,9 +51,9 @@ public class ImageScrollShowControl : MonoBehaviour
 
         first.GetWorldCorners(rectCorners); //获取第一个信息框的四个角坐标
 
-        if (rectCorners[0].y > viewCorners[1].y) //判断第一个是否离开
+        if (rectCorners[0].y > viewCorners[1].y + grid.spacing.y) //判断第一个是否离开
         {
-            int index = int.Parse(last.GetChild(0).GetComponent<Text>().text); //获取最后一个的序号
+            int index = int.Parse(last.GetChild(0).GetComponent<Text>().text); //获取最后一个的排行榜序号
 
             if (index < playerInfoNumber) //序号小于信息总个数
             {
@@ -63,15 +63,13 @@ public class ImageScrollShowControl : MonoBehaviour
                 loopItems.RemoveFirst();
             }
         }
-
-        first = loopItems.First.Value; //重新获取第一条信息
-        last = loopItems.Last.Value; //重新获取最后一条信息
+        
         last.GetWorldCorners(rectCorners); //获取最后一个信息框的四个角坐标
 
         if (rectCorners[1].y < viewCorners[0].y) //判断最后一个是否离开
         {
-            int index = int.Parse(first.GetChild(0).GetComponent<Text>().text); //获取第一个的序号
-
+            int index = int.Parse(first.GetChild(0).GetComponent<Text>().text); //获取第一个的排行榜序号
+            
             if (index > 1 && index < playerInfoNumber)
             {
                 last.localPosition = first.localPosition + new Vector3(0, hight, 0); //设置信息位置

@@ -36,9 +36,8 @@ public class CountDownUIControl : MonoBehaviour
         int minute = time / 60 % 60; //分数
         int hour = time / 3600 % 24; //小时
         int day = time / 86400; //天数
-
-        string textStr = SetTimeFormat(day) + "d " + SetTimeFormat(hour) + "h "
-                        + SetTimeFormat(minute) + "m " + SetTimeFormat(second) + "s";
+        string textStr = SetTimeFormat(day) + "d " + SetTimeFormat(hour) + "h " + SetTimeFormat(minute) + "m " +
+                         SetTimeFormat(second) + "s";
 
         return textStr;
     }
