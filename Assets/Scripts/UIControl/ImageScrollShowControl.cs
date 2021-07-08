@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class ImageScrollShowControl : MonoBehaviour
 {
     public LinkedList<RectTransform> loopItems = new LinkedList<RectTransform>(); //存储所有排行榜信息卡片物体
-    [SerializeField] private RectTransform viewPointImage; //范围显示框，需拖拽
+    [SerializeField] private RectTransform imgViewPoint; //范围显示框，需拖拽
     [SerializeField] private GridLayoutGroup grid; //排序组件
     [SerializeField] private RectTransform contentRect; //滑动框的矩形组件属性
     private Vector3[] viewCorners = new Vector3[4]; //存储显示框的四个点坐标
@@ -22,7 +22,7 @@ public class ImageScrollShowControl : MonoBehaviour
     {
         userData = JsonData.GetItem(); //获取Json数据
         playerInfoNumber = userData.list.Count; //获取玩家信息总数
-        viewPointImage.GetWorldCorners(viewCorners); //获取显示框四个角的坐标
+        imgViewPoint.GetWorldCorners(viewCorners); //获取显示框四个角的坐标
         hight = grid.cellSize.y + grid.spacing.y; //一个信息框加一个间隔的距离
         contentRect.sizeDelta = new Vector2(contentRect.sizeDelta.x, hight * playerInfoNumber); //设置排列框长度
     }
@@ -31,7 +31,7 @@ public class ImageScrollShowControl : MonoBehaviour
     {
         if (transform.childCount != 0 && loopItems.Count == 0)
         {
-            for (int i = 0; i < transform.childCount; i++) //读取排行榜显示卡片物体
+            for (int i = 0; i < transform.childCount; i++) //读取排行榜显示的卡片物体
             {
                 loopItems.AddLast(transform.GetChild(i).GetComponent<RectTransform>());
             }

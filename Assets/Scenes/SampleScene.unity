@@ -1367,7 +1367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed94df3799f55449094a9616893af5cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ImageViewPoint: {fileID: 403835009}
+  imgViewPoint: {fileID: 403835009}
   objectsPool: {fileID: 1460396162}
   gridLayoutGroup: {fileID: 1285806289}
 --- !u!114 &1285806294
@@ -1382,7 +1382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3670462400674df281427e87eb82f17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewPointImage: {fileID: 403835009}
+  imgViewPoint: {fileID: 403835009}
   grid: {fileID: 1285806289}
   contentRect: {fileID: 1285806288}
 --- !u!1 &1296555126
@@ -1677,8 +1677,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 141c295dd12894e3a977a43cc922ce58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainInterfaceImage: {fileID: 1674100874}
-  contentImage: {fileID: 1285806288}
+  imgMainInterface: {fileID: 1674100874}
+  imgContentTransform: {fileID: 1285806288}
   leaderBoardInfoLoad: {fileID: 1285806293}
   imageScrollShowControl: {fileID: 1285806294}
   objectsPool: {fileID: 1460396162}
@@ -2197,7 +2197,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1827536029
 RectTransform:
   m_ObjectHideFlags: 0

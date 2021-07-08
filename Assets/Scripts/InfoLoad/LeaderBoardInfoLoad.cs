@@ -8,7 +8,7 @@ using UnityEngine.UI;
 /// </summary>
 public class LeaderBoardInfoLoad : MonoBehaviour
 {
-    [SerializeField] private RectTransform ImageViewPoint; //显示框，需拖拽
+    [SerializeField] private RectTransform imgViewPoint; //显示框，需拖拽
     [SerializeField] private ObjectsPool objectsPool; //获取对象池脚本，需拖拽
     [SerializeField] private GridLayoutGroup gridLayoutGroup; //获取排列组件，需拖拽
     private UserData userData; //接收Json数据
@@ -17,7 +17,7 @@ public class LeaderBoardInfoLoad : MonoBehaviour
     {
         float cellSizeHeight = gridLayoutGroup.cellSize.y; //每个排行榜信息显示位置的高度
         float spacingHeight = gridLayoutGroup.spacing.y; //排行榜信息间间隔的高度
-        float heightScale = ImageViewPoint.rect.height / 6 / (cellSizeHeight + spacingHeight); //计算卡片显示和间隔高度的缩放比例
+        float heightScale = imgViewPoint.rect.height / 6 / (cellSizeHeight + spacingHeight); //计算卡片显示和间隔高度的缩放比例
         gridLayoutGroup.cellSize = new Vector2(gridLayoutGroup.cellSize.x, cellSizeHeight * heightScale); //设置排行榜信息卡片的高
         gridLayoutGroup.spacing = new Vector2(gridLayoutGroup.spacing.x, spacingHeight * heightScale); //设置排行榜卡片间隔
     }

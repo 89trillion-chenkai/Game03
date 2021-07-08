@@ -5,23 +5,30 @@
 /// </summary>
 public class ToastShowControl : MonoBehaviour
 {
-    [SerializeField] private GameObject toast; //弹出窗口Toast预制体
+    [SerializeField] private GameObject toastPrefab; //弹出窗口Toast预制体
     [SerializeField] private RectTransform toastRect; //Toast的矩形组件属性
+    [SerializeField] private ToastDataLoad toastDataLoad; //弹窗加载信息
+    private Transform imgViewPointTransform; //弹窗的父物体
 
     void Start()
     {
-        toast.SetActive(false);
+        toastPrefab.SetActive(false);
     }
 
     //按钮绑定的展示玩家信息窗口
     public void ShowToastButton()
     {
-        if (toast.activeSelf == false)
+        if (imgViewPointTransform == null)
         {
-            toast.SetActive(true);
-            toast.transform.SetParent(transform.parent.parent, false); //设置父物体
+            imgViewPointTransform = transform.parent.parent; //获取弹窗父物体的Transform
+        }
+        
+        if (toastPrefab.activeSelf == false)
+        {
+            toastPrefab.SetActive(true);
+            toastPrefab.transform.SetParent(imgViewPointTransform, false); //设置父物体
             toastRect.anchoredPosition3D = Vector3.zero; //设置位置居中
-            toast.GetComponent<ToastDataLoad>().LoadPlayerPInfo(); //加载玩家信息
+            toastDataLoad.LoadPlayerPInfo(); //加载玩家信息
             Invoke("CloseToast", 1); //显示1秒后即关闭弹窗
         }
     }
@@ -29,9 +36,9 @@ public class ToastShowControl : MonoBehaviour
     //关闭展示玩家信息窗口
     public void CloseToast()
     {
-        if (toast.activeSelf == true)
+        if (toastPrefab.activeSelf == true)
         {
-            toast.SetActive(false);
+            toastPrefab.SetActive(false);
         }
     }
 }

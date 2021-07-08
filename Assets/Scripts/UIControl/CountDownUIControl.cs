@@ -9,8 +9,7 @@ using UnityEngine.UI;
 /// </summary>
 public class CountDownUIControl : MonoBehaviour
 {
-    [SerializeField]
-    private Text timeText; //时间显示文本，需拖拽
+    [SerializeField] private Text timeText; //时间显示文本，需拖拽
     private int countDown; //存储倒计时时长
 
     void Start()
