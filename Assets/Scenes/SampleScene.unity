@@ -1252,8 +1252,6 @@ GameObject:
   - component: {fileID: 1285806290}
   - component: {fileID: 1285806289}
   - component: {fileID: 1285806292}
-  - component: {fileID: 1285806293}
-  - component: {fileID: 1285806294}
   m_Layer: 5
   m_Name: ImageContent
   m_TagString: Untagged
@@ -1355,36 +1353,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 0
---- !u!114 &1285806293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1285806287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed94df3799f55449094a9616893af5cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imgViewPoint: {fileID: 403835009}
-  objectsPool: {fileID: 1460396162}
-  gridLayoutGroup: {fileID: 1285806289}
---- !u!114 &1285806294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1285806287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3670462400674df281427e87eb82f17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imgViewPoint: {fileID: 403835009}
-  grid: {fileID: 1285806289}
-  contentRect: {fileID: 1285806288}
 --- !u!1 &1296555126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1658,6 +1626,8 @@ GameObject:
   - component: {fileID: 1460396163}
   - component: {fileID: 1460396162}
   - component: {fileID: 1460396161}
+  - component: {fileID: 1460396165}
+  - component: {fileID: 1460396164}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1679,8 +1649,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imgMainInterface: {fileID: 1674100874}
   imgContentTransform: {fileID: 1285806288}
-  leaderBoardInfoLoad: {fileID: 1285806293}
-  imageScrollShowControl: {fileID: 1285806294}
+  leaderBoardInfoLoad: {fileID: 1460396165}
+  imageScrollShowControl: {fileID: 1460396164}
   objectsPool: {fileID: 1460396162}
   countDownUIControl: {fileID: 1460396161}
 --- !u!4 &1460396160
@@ -1735,6 +1705,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71880faffd8c54a4b80c74adbd696dd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1460396164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460396158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3670462400674df281427e87eb82f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imgViewPoint: {fileID: 403835009}
+  grid: {fileID: 1285806289}
+  contentRect: {fileID: 1285806288}
+--- !u!114 &1460396165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460396158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed94df3799f55449094a9616893af5cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imgViewPoint: {fileID: 403835009}
+  objectsPool: {fileID: 1460396162}
+  contentTransform: {fileID: 1285806288}
+  grid: {fileID: 1285806289}
 --- !u!1 &1490404980
 GameObject:
   m_ObjectHideFlags: 0

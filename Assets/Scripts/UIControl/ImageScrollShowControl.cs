@@ -14,30 +14,33 @@ public class ImageScrollShowControl : MonoBehaviour
     [SerializeField] private RectTransform contentRect; //滑动框的矩形组件属性
     private Vector3[] viewCorners = new Vector3[4]; //存储显示框的四个点坐标
     private Vector3[] rectCorners = new Vector3[4]; //卡片信息的四个点坐标
-    private int playerInfoNumber; //玩家信息总数
     private UserData userData; //接收Json数据
-    private float hight; //信息框加间隔的距离
+    private int playerInfoNumber; //玩家信息总数
+    private float addHeight; //信息框加间隔的距离
     
     private void Start()
     {
         userData = JsonData.GetItem(); //获取Json数据
         playerInfoNumber = userData.list.Count; //获取玩家信息总数
         imgViewPoint.GetWorldCorners(viewCorners); //获取显示框四个角的坐标
-        hight = grid.cellSize.y + grid.spacing.y; //一个信息框加一个间隔的距离
-        contentRect.sizeDelta = new Vector2(contentRect.sizeDelta.x, hight * playerInfoNumber); //设置排列框长度
     }
 
     void Update()
     {
-        if (transform.childCount != 0 && loopItems.Count == 0)
+        if (addHeight == 0)
         {
-            for (int i = 0; i < transform.childCount; i++) //读取排行榜显示的卡片物体
+            addHeight = grid.cellSize.y + grid.spacing.y; //获取排行榜脚本加载修改后的信息框加间隔的距离
+        }
+    
+        if (contentRect.childCount != 0 && loopItems.Count == 0)
+        {
+            for (int i = 0; i < contentRect.childCount; i++) //读取排行榜显示的卡片物体
             {
-                loopItems.AddLast(transform.GetChild(i).GetComponent<RectTransform>());
+                loopItems.AddLast(contentRect.GetChild(i).GetComponent<RectTransform>());
             }
         }
 
-        if (transform.childCount != 0 && transform.childCount == loopItems.Count) //保证链表里和显示框里都有全部卡片物体
+        if (contentRect.childCount != 0 && contentRect.childCount == loopItems.Count) //保证链表里和显示框里都有全部卡片物体
         {
             IfChange(); //判断是否有卡片被滑出显示框
         }
@@ -57,7 +60,7 @@ public class ImageScrollShowControl : MonoBehaviour
 
             if (index < playerInfoNumber) //序号小于信息总个数
             {
-                first.localPosition = last.localPosition - new Vector3(0, hight, 0); //设置信息位置
+                first.localPosition = last.localPosition - new Vector3(0, addHeight, 0); //设置信息位置
                 first.GetComponent<PlayerInfoLoad>().LoadPlayerInfo(userData.list[index], index + 1); //更新显示信息
                 loopItems.AddLast(first);
                 loopItems.RemoveFirst();
@@ -72,7 +75,7 @@ public class ImageScrollShowControl : MonoBehaviour
             
             if (index > 1 && index < playerInfoNumber)
             {
-                last.localPosition = first.localPosition + new Vector3(0, hight, 0); //设置信息位置
+                last.localPosition = first.localPosition + new Vector3(0, addHeight, 0); //设置信息位置
                 last.GetComponent<PlayerInfoLoad>().LoadPlayerInfo(userData.list[index - 2], index - 1); //更新显示信息
                 loopItems.AddFirst(last);
                 loopItems.RemoveLast();
