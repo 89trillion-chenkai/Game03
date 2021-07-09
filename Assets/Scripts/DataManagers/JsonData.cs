@@ -18,7 +18,7 @@ public class UserInfo //数据模板类
 
 public class UserData //数据接收类
 {
-    public string countDown; //倒计时
+    public int countDown; //倒计时
     public List<UserInfo> list; //玩家信息
 }
 

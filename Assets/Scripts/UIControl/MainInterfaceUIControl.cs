@@ -9,9 +9,9 @@ public class MainInterfaceUIControl : MonoBehaviour
 {
     [SerializeField] private GameObject imgMainInterface; //主界面图片
     [SerializeField] private Transform imgContentTransform; //展示信息滑动框
-    [SerializeField] private LeaderBoardInfoLoad leaderBoardInfoLoad; //Content的信息加载脚本
-    [SerializeField] private ImageScrollShowControl imageScrollShowControl; //Content的滑动展示脚本
-    [SerializeField] private ObjectsPool objectsPool; //对象池脚本
+    [SerializeField] private LeaderBoardInfoShow leaderBoardInfoShow; //Content的信息加载脚本
+    [SerializeField] private ScrollShowControl scrollShowControl; //Content的滑动展示脚本
+    [SerializeField] private InfoCardObjectsPool infoCardObjectsPool; //对象池脚本
     [SerializeField] private CountDownUIControl countDownUIControl; //调用脚本里的倒计时协程
     private Vector3 imageContentPosition; //排列框位置
     private bool isCountDownStart; //倒计时是否开启标记
@@ -29,7 +29,7 @@ public class MainInterfaceUIControl : MonoBehaviour
         if (imgMainInterface.activeSelf == false)
         {
             imgMainInterface.SetActive(true); //主界面显示
-            leaderBoardInfoLoad.ShowInfo(); //加载排行榜信息
+            leaderBoardInfoShow.ShowInfo(); //加载排行榜信息
             
             if (isCountDownStart == false)
             {
@@ -55,9 +55,9 @@ public class MainInterfaceUIControl : MonoBehaviour
     {
         for (int i = imgContentTransform.childCount - 1; i >= 0; i--)
         {
-            objectsPool.ReturnInstance(imgContentTransform.GetChild(i).gameObject); //对象池回收信息卡片物体
+            infoCardObjectsPool.ReturnInstance(imgContentTransform.GetChild(i).gameObject); //对象池回收信息卡片物体
         }
         
-        imageScrollShowControl.loopItems.Clear(); //清除链表里的排行榜卡片信息数据
+        scrollShowControl.loopItems.Clear(); //清除链表里的排行榜卡片信息数据
     }
 }

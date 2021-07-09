@@ -12,7 +12,7 @@ public class CountDownUIControl : MonoBehaviour
 
     void Start()
     {
-        countDown = int.Parse(JsonData.data.countDown); //获取Json数据里的倒计时数据
+        countDown = JsonData.data.countDown; //获取Json数据里的倒计时数据
     }
 
     //倒计时协程
@@ -33,26 +33,8 @@ public class CountDownUIControl : MonoBehaviour
         int minute = time / 60 % 60; //分数
         int hour = time / 3600 % 24; //小时
         int day = time / 86400; //天数
-        string textStr = SetTimeFormat(day) + "d " + SetTimeFormat(hour) + "h " + SetTimeFormat(minute) + "m " +
-                         SetTimeFormat(second) + "s";
+        string textStr = string.Format("{0:D2} : {1:D2} : {2:D2} : {3:D2}", day, hour, minute, second);
 
         return textStr;
-    }
-
-    //设置时间格式，如果位数不足两位则在十位补零
-    private string SetTimeFormat(int time)
-    {
-        string timeStr = "";
-        
-        if (time < 10) //不足两位则补零
-        {
-            timeStr += "0" + time;
-        }
-        else
-        {
-            timeStr += time;
-        }
-
-        return timeStr;
     }
 }
